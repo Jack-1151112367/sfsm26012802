@@ -1,0 +1,1290 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内蒙古帅峰商贸公司 - 农产品供应链综合服务企业</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #c9a227;
+            --accent-color: #ecc94b;
+            --text-color: #2d3748;
+            --light-bg: #f7fafc;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-color);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .text-secondary {
+            color: var(--secondary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d6b13b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/abe15da6207b41fa9d247c9b6b64e7f1.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202601252325003D20DB12DD71650FF0F3&rrcfp=8a172a1a&x-expires=1769959500&x-signature=Lnth7yjIgfJl7HpJyUHPcS5LtKI%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 54, 93, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info-item i {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .ai-chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .ai-chat-button:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .ai-chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .ai-chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .ai-chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .ai-chat-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+        }
+        
+        .ai-chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .ai-chat-footer button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 20px 20px 0 20px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .ai-message {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px 20px 20px 0;
+            align-self: flex-start;
+        }
+        
+        #scene-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 70vh;
+            }
+            
+            .ai-chat-window {
+                width: 300px;
+                height: 450px;
+                bottom: 80px;
+                right: 20px;
+            }
+            
+            .ai-chat-button {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-section {
+                height: 60vh;
+            }
+            
+            .ai-chat-window {
+                width: 280px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-1">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ff676b36b3b4471f9fe62ae22301e469.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&amp;rcl=202601251653238E695885150DD60E1F9B&amp;rrcfp=8a172a1a&amp;x-expires=1769936003&amp;x-signature=Pab%2B6OytqzAZpYh1avlbRE4VIm4%3D" alt="内蒙古帅峰商贸公司" class="h-14 object-cover">
+                </div>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active text-primary font-medium">首页</a>
+                    <a href="#about" class="nav-link text-gray-600 font-medium">关于我们</a>
+                    <a href="#products" class="nav-link text-gray-600 font-medium">产品展示</a>
+                    <a href="#contact" class="nav-link text-gray-600 font-medium">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2">
+                <a href="#home" class="block py-2 text-primary font-medium">首页</a>
+                <a href="#about" class="block py-2 text-gray-600 font-medium">关于我们</a>
+                <a href="#products" class="block py-2 text-gray-600 font-medium">产品展示</a>
+                <a href="#contact" class="block py-2 text-gray-600 font-medium">联系我们</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 首屏英雄区 -->
+    <section id="home" class="hero-section flex items-center justify-center">
+        <div id="scene-container"></div>
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">内蒙古帅峰商贸</h1>
+            <p class="text-xl md:text-2xl text-white mb-8">农产品供应链综合服务企业</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#about" class="btn-primary px-8 py-3 rounded-full font-medium">了解更多</a>
+                <a href="#contact" class="btn-secondary px-8 py-3 rounded-full font-medium">联系我们</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-primary">关于我们</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">公司简介</h3>
+                    <p class="text-gray-600 mb-6">内蒙古帅峰商贸公司（以下简称"帅峰商贸"）为一家农产品供应链综合服务企业，于2009年6月经杭锦后旗工商行政管理局批准成立，注册地为内蒙古巴彦淖尔，总部位于内蒙古巴彦淖尔市杭锦后旗二道桥镇帅峰商贸，公司类型为有限责任公司（自然人投资或控股）。</p>
+                    <p class="text-gray-600 mb-6">作为国内农产品供应链服务行业先行者之一，帅峰商贸始终行而不辍，在成为全球领先农产品供应链服务商的征途上，凡心所向，素履以往，我们以奋斗者为本，居安思危，永葆创业精神，坚信发展是应对不确定的最有效方法，安全是基业长青的根基。</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-gray-100 p-4 rounded-lg text-center flex-1">
+                            <h4 class="text-3xl font-bold text-primary mb-2">18+</h4>
+                            <p class="text-gray-600">年行业经验</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center flex-1">
+                            <h4 class="text-3xl font-bold text-primary mb-2">5000+</h4>
+                            <p class="text-gray-600">合作客户</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center flex-1">
+                            <h4 class="text-3xl font-bold text-primary mb-2">10+</h4>
+                            <p class="text-gray-600">覆盖省份</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/7ae6f31a37ef407da13f42e998add21b~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125164259391A0AF7EC325D11F278&amp;rrcfp=e75484ac&amp;x-expires=1769935384&amp;x-signature=QQItHtAHaFTOe0baixCCuKKcOkU%3D" alt="货车运输场景" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/ee12047e7edf463a9e03670ff652fbb8.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&amp;rcl=202601251618292CECED78F6CBB10F71D7&amp;rrcfp=8a172a1a&amp;x-expires=1769933909&amp;x-signature=Ucs%2FjaXgSyuX6RaT3hayXVz%2BKuY%3D" alt="技术工人介绍机器设备" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2d6b948130f54d8c84b72a4227bb2bb0~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=2026012516432167F2BF7D40357A0FB844&amp;rrcfp=e75484ac&amp;x-expires=1769935402&amp;x-signature=Dssw5Si3%2FnSibC9LdAP0bTdp3F0%3D" alt="企业文化" class="rounded-lg shadow-md h-48 w-full object-cover">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3df1dbddc5514ce990fa2a75c6d87912~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202601251643321A2906FF0EBD3211D5CE&amp;rrcfp=e75484ac&amp;x-expires=1769935412&amp;x-signature=wqtbv%2FgMnxGaavhhZ%2FaMijGYaF8%3D" alt="商务团队合作" class="rounded-lg shadow-md h-48 w-full object-cover">
+                </div>
+            </div>
+            
+            <!-- 发展历程 -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-primary mb-8">发展历程</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2009年</h4>
+                        <p class="text-gray-600">公司经杭锦后旗工商行政管理局批准成立</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2013年</h4>
+                        <p class="text-gray-600">业务扩展至周边省份，建立了稳定的客户网络</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2014年</h4>
+                        <p class="text-gray-600">成立动产质押业务部门，开始与国内农产品领域客户合作</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2019年</h4>
+                        <p class="text-gray-600">获评"内蒙古自治区优秀民营企业"称号</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2020年</h4>
+                        <p class="text-gray-600">参与杭锦后旗新型冠状病毒感染肺炎疫情防控工作，获得乡村振兴突出贡献奖</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-primary">2025年</h4>
+                        <p class="text-gray-600">引入智能业务管理系统，提升服务效率和质量，年动产质押融资能力超十亿元</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 产品展示 -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-primary">业务展示</h2>
+            <p class="text-gray-600 mb-12 max-w-full whitespace-nowrap overflow-x-auto">我们提供农产品供应链综合服务，包括动产质押融资、货物储存监管、农产品购销生产加工等，满足客户的全供应链需求。</p>
+            
+            <!-- 产品分类标签 -->
+            <div class="flex flex-wrap gap-4 mb-10 justify-center">
+                <button class="product-filter-btn active px-6 py-2 rounded-full bg-primary text-white" data-category="all">全部业务</button>
+                <button class="product-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all" data-category="finance">质押融资</button>
+                <button class="product-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all" data-category="storage">仓储监管</button>
+                <button class="product-filter-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-primary hover:text-white transition-all" data-category="processing">生产加工</button>
+            </div>
+            
+            <!-- 业务卡片 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 动产质押融资 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="finance">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/9bee74028b5d42b4ad86fad62f68f19b.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&amp;rcl=202601252134128CC374CD35A5F8115868&amp;rrcfp=8a172a1a&amp;x-expires=1769952853&amp;x-signature=J22ysS%2BBkkHcB%2FmOFyhKMGcYYDM%3D" alt="动产质押融资" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">动产质押融资</h3>
+                        <p class="text-gray-600 mb-4">提供全国范围内农产品动产质押融资一站式服务，年动产质押融资能力超十亿元。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">高效便捷</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="动产质押融资">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="动产质押融资">查看详情</button>
+                    </div>
+                </div>
+                
+                <!-- 货物储存监管 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="storage">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ca20fa14c9194040aa6d4143d8c6ea73~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125230317835E7EC777B3881113C6&amp;rrcfp=e75484ac&amp;x-expires=1769958199&amp;x-signature=NufuLurzu0uO8V0TbQciGyej1tI%3D" alt="货物储存监管" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">货物储存监管</h3>
+                        <p class="text-gray-600 mb-4">提供理货验收、入库分拣、货物包装、组货配货、熏蒸杀虫等个性化服务。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">安全可靠</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="货物储存监管">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="货物储存监管">查看详情</button>
+                    </div>
+                </div>
+                
+                <!-- 农产品生产加工 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="processing">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2f20de29c4914f638318b32d502f644f~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125163903729FE943EC403C10FA6E&amp;rrcfp=e75484ac&amp;x-expires=1769935145&amp;x-signature=lof8Wy4GUgcq78feU9X3Bn7IrPc%3D" alt="农产品生产加工" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">农产品生产加工</h3>
+                        <p class="text-gray-600 mb-4">配备全套西葫芦籽、雪白南瓜子、葵花籽加工生产线，年生产加工高端精细化各类籽仁超三万吨。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">品质保证</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="农产品生产加工">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="农产品生产加工">查看详情</button>
+                    </div>
+                </div>
+                
+                <!-- 物流配送 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="storage">
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/fafff4a63035418ba47abad426ee6610.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&amp;rcl=20260125213834ECADE34B0BE91E0F97E6&amp;rrcfp=8a172a1a&amp;x-expires=1769953114&amp;x-signature=dJNYGCzxQilLU%2Fy%2Fhf8Ge90%2FwmM%3D" alt="物流配送" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">物流配送</h3>
+                        <p class="text-gray-600 mb-4">提供高效的物流配送服务，确保农产品从产地到市场的顺畅流通。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">准时高效</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="物流配送">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="物流配送">查看详情</button>
+                    </div>
+                </div>
+                
+                <!-- 农资销售 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="processing">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/bb7f5fe0a07244b5b47891ba46a6d56f.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&amp;rcl=20260125214655B5EBE5B713267E0F7A4B&amp;rrcfp=8a172a1a&amp;x-expires=1769953615&amp;x-signature=9u1qx3NgWnbdK2SO88HIZHKMDqE%3D" alt="农资销售" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">农资销售</h3>
+                        <p class="text-gray-600 mb-4">提供优质的农业生产资料，支持农业生产，保障农产品质量。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">优质可靠</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="农资销售">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="农资销售">查看详情</button>
+                    </div>
+                </div>
+                
+                <!-- 市场信息咨询 -->
+                <div class="product-card relative overflow-hidden shadow-md rounded-lg" data-category="finance">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a3c66ffe6f1e44a78bb7604c4312bc41.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&amp;rcl=202601252148476625A67FAD9D0A13AE1F&amp;rrcfp=8a172a1a&amp;x-expires=1769953727&amp;x-signature=bgYodq3bTkF4U4lOGBrKgsm7V4o%3D" alt="市场信息咨询" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">市场信息咨询</h3>
+                        <p class="text-gray-600 mb-4">提供国内农产品市场信息咨询服务，帮助客户把握市场动态，做出明智决策。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-secondary font-bold">专业洞察</span>
+                            <button class="view-details-btn text-primary hover:text-secondary" data-product="市场信息咨询">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="px-6 py-2 bg-white text-primary rounded-full font-medium view-details-btn" data-product="市场信息咨询">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-primary">联系我们</h2>
+            <p class="text-gray-600 mb-12 max-w-3xl">如果您对我们的产品和服务感兴趣，或者有任何疑问，请随时与我们联系。我们将竭诚为您服务。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">联系方式</h3>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 class="font-bold">公司地址</h4>
+                            <p class="text-gray-600">内蒙古巴彦淖尔市杭锦后旗二道桥镇帅峰商贸</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4 class="font-bold">联系电话</h4>
+                            <p class="text-gray-600">18847108864</p>
+                            <p class="text-gray-600">13804785444</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 class="font-bold">电子邮箱</h4>
+                            <p class="text-gray-600">1151112367@qq.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 class="font-bold">工作时间</h4>
+                            <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">关注我们</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fab fa-qq"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">在线留言</h3>
+                    <form id="contact-form" class="space-y-4" action="https://formsubmit.co/1151112367@qq.com" method="POST">
+                        <input type="hidden" name="_subject" value="在线留言 - 内蒙古帅峰商贸">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">姓名</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">电子邮箱</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">联系电话</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">主题</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">请选择</option>
+                                <option value="inquiry">产品咨询</option>
+                                <option value="cooperation">合作洽谈</option>
+                                <option value="complaint">投诉建议</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">留言内容</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-md font-medium w-full">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/d77f80ff075549ad90ace8842a742eb7~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125170021107D61C8B8304D121C50&amp;rrcfp=e75484ac&amp;x-expires=1769936421&amp;x-signature=11PyBDZHD8AUmsRoBI5URpna1HY%3D" alt="内蒙古帅峰商贸公司" class="w-full max-w-md h-auto mb-4">
+                    <p class="mb-4">专业商贸服务提供商，致力于为客户提供高效、便捷、可靠的商贸服务。</p>
+                    <div class="social-links flex justify-around w-full">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all"><i class="fab fa-weixin text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all"><i class="fab fa-weibo text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all"><i class="fab fa-qq text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-20 rounded-full hover:bg-opacity-30 transition-all"><i class="fab fa-linkedin text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#products">产品展示</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">产品服务</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#">物流服务</a></li>
+                        <li><a href="#">仓储服务</a></li>
+                        <li><a href="#">进出口贸易</a></li>
+                        <li><a href="#">供应链管理</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">联系方式</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 内蒙古巴彦淖尔市杭锦后旗二道桥镇帅峰商贸</li>
+                        <li class="flex items-center"><i class="fas fa-phone-alt mr-2"></i> 18847108864</li>
+                        <li class="flex items-center"><i class="fas fa-phone-alt mr-2"></i> 13804785444</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>© 2025 内蒙古帅峰商贸有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 产品详情模态框 -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold text-primary"></h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AI智能客服 -->
+    <div class="ai-chat-button">
+        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/9027a785a57c45a089cfc33bd52647c5~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125155435A1DBACE0D7EE01119181&amp;rrcfp=f06b921b&amp;x-expires=1771919707&amp;x-signature=6mnv9dvH%2FoVX%2F48uy6q0z%2B6fCig%3D" alt="AI客服" class="w-10 h-10">
+    </div>
+    
+    <div class="ai-chat-window">
+        <div class="ai-chat-header">
+            <div class="flex items-center">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/9027a785a57c45a089cfc33bd52647c5~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=20260125155435A1DBACE0D7EE01119181&amp;rrcfp=f06b921b&amp;x-expires=1771919707&amp;x-signature=6mnv9dvH%2FoVX%2F48uy6q0z%2B6fCig%3D" alt="AI客服" class="w-8 h-8 mr-2">
+                <span>AI智能客服</span>
+            </div>
+            <button id="close-chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chat-body">
+            <div class="message ai-message">
+                您好！我是内蒙古帅峰商贸的AI智能客服，很高兴为您服务。请问有什么可以帮助您的吗？
+            </div>
+        </div>
+        <div class="ai-chat-footer">
+            <input type="text" id="chat-input" placeholder="请输入您的问题...">
+            <button id="send-message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // 导航链接高亮
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // 产品筛选
+        const filterBtns = document.querySelectorAll('.product-filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-primary', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                
+                // 添加当前按钮的active类
+                btn.classList.add('active', 'bg-primary', 'text-white');
+                btn.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                const category = btn.getAttribute('data-category');
+                
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // 产品详情模态框
+        const modal = document.getElementById('product-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+        
+        // 业务详情数据
+        const productDetails = {
+            '动产质押融资': {
+                title: '动产质押融资服务',
+                content: `
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/9bee74028b5d42b4ad86fad62f68f19b.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601252134128CC374CD35A5F8115868&rrcfp=8a172a1a&x-expires=1769952853&x-signature=J22ysS%2BBkkHcB%2FmOFyhKMGcYYDM%3D" alt="动产质押融资" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">我们提供全国范围内农产品动产质押融资一站式服务，专注农产品供应链服务，年动产质押融资能力超十亿元。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">质押范围</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>各类农产品原料：西葫芦籽、葵花籽、油葵、西瓜籽、雪白南瓜籽、玉米、小麦、高粱、亚麻籽、朝天椒、糯米、锁阳、苁蓉、羊绒等</li>
+                        <li>各类加工成品半成品：葡萄干、脱水青红椒、脱水番茄、化肥、葵花油、亚麻籽油等</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务优势</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">灵活高效</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>质押单笔款项不设上限</li>
+                                <li>可满足当日出款需求</li>
+                                <li>根据客户需求定制方案</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">成本优势</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>贷款利率低于行业平均水平</li>
+                                <li>质押价格依据市场综合价格制定</li>
+                                <li>提供市场信息，帮助规避风险</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的融资服务团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 18847108864</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            },
+            '货物储存监管': {
+                title: '货物储存监管服务',
+                content: `
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/260444d9215c4114b8817c35cfba3afa.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260125213543E157E93961CB2A0FE14A&rrcfp=8a172a1a&x-expires=1769952943&x-signature=QZBPWlhOJB4OQiviisqou0%2FAuM0%3D" alt="货物储存监管" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">我们提供理货验收、入库分拣、货物包装、组货配货、熏蒸杀虫等个性化服务，确保货物安全存储和高效管理。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">仓储设施</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>主要储存库房厂区共5处，37栋常温、恒温农产品储存库</li>
+                        <li>总面积超8万平方米，年货物吞吐能力超五十万吨</li>
+                        <li>仓库设备齐全，满足各种类型规模企业的货物储存需求</li>
+                        <li>配备经验丰富的作业人员与现代化设备</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务内容</h4>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-box text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">理货验收</h5>
+                            <p class="text-sm">确保货物数量准确、质量完好</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-warehouse text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">库存管理</h5>
+                            <p class="text-sm">实时监控库存变化，确保货物安全</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-truck-loading text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">组货配货</h5>
+                            <p class="text-sm">高效准确的货物配送服务</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的仓储服务团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 13804785444</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            },
+            '农产品生产加工': {
+                title: '农产品生产加工服务',
+                content: `
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8fa3ed665a944966899ed87a2a9eced6.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601251605247E14A3A2EFA69A0FBA4F&rrcfp=8a172a1a&x-expires=1769933125&x-signature=Rh1zDqPCkGlOStZNiNwKIJgD4wo%3D" alt="农产品生产加工" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">公司现有两处主要生产厂区共占地面积为32618平方米，配备全套西葫芦籽、雪白南瓜子、葵花籽加工生产线数条，年生产加工高端精细化各类籽仁超三万吨。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">加工设施</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>8栋农产品储存库共计19334平方米</li>
+                        <li>3栋农产品加工车间共计3368平方米</li>
+                        <li>全套先进的加工生产设备</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">加工工艺</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h5 class="font-bold mb-2">主要设备</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>精选机</li>
+                                <li>抛光机</li>
+                                <li>比重机</li>
+                                <li>去石机</li>
+                                <li>智慧色选机</li>
+                                <li>全自动电子定量打包机</li>
+                                <li>除尘机</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-2">加工流程</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>清选</li>
+                                <li>除杂</li>
+                                <li>抛光</li>
+                                <li>比重</li>
+                                <li>去石</li>
+                                <li>除尘</li>
+                                <li>色选</li>
+                                <li>包装</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的加工服务团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 18847108864</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            },
+            '物流配送': {
+                title: '物流配送服务',
+                content: `
+                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/fafff4a63035418ba47abad426ee6610.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260125213834ECADE34B0BE91E0F97E6&rrcfp=8a172a1a&x-expires=1769953114&x-signature=dJNYGCzxQilLU%2Fy%2Fhf8Ge90%2FwmM%3D" alt="物流配送" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">我们提供高效的物流配送服务，确保农产品从产地到市场的顺畅流通，为客户提供全程无忧的物流解决方案。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务特点</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>覆盖全国主要城市的配送网络</li>
+                        <li>多种车型选择，满足不同货物需求</li>
+                        <li>全程GPS跟踪，实时掌握货物状态</li>
+                        <li>专业的配送团队，确保准时送达</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">配送类型</h4>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-truck text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">干线运输</h5>
+                            <p class="text-sm">城市间的长途货物运输</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-van-shuttle text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">城市配送</h5>
+                            <p class="text-sm">城市内部的短途配送服务</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-temperature-low text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">冷链配送</h5>
+                            <p class="text-sm">全程温控的冷链物流服务</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的物流服务团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 13804785444</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            },
+            '农资销售': {
+                title: '农资销售服务',
+                content: `
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/bb7f5fe0a07244b5b47891ba46a6d56f.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=20260125214655B5EBE5B713267E0F7A4B&rrcfp=8a172a1a&x-expires=1769953615&x-signature=9u1qx3NgWnbdK2SO88HIZHKMDqE%3D" alt="农资销售" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">我们提供优质的农业生产资料，支持农业生产，保障农产品质量，为农业生产提供全方位的支持。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">产品类型</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>化肥：氮肥、磷肥、钾肥、复合肥等</li>
+                        <li>农药：杀虫剂、杀菌剂、除草剂等</li>
+                        <li>种子：各类农作物种子</li>
+                        <li>农业工具：小型农具、灌溉设备等</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务优势</h4>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">品质保证</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>正规渠道进货，品质有保障</li>
+                                <li>严格的质量检测流程</li>
+                                <li>产品追溯系统</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">技术支持</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>专业的技术指导团队</li>
+                                <li>定期举办农业技术培训</li>
+                                <li>提供种植方案咨询</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的农资销售团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 18847108864</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            },
+            '市场信息咨询': {
+                title: '市场信息咨询服务',
+                content: `
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/a3c66ffe6f1e44a78bb7604c4312bc41.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601252148476625A67FAD9D0A13AE1F&rrcfp=8a172a1a&x-expires=1769953727&x-signature=bgYodq3bTkF4U4lOGBrKgsm7V4o%3D" alt="市场信息咨询" class="w-full h-64 object-cover rounded-lg mb-6">
+                    <p class="mb-4">我们提供国内农产品市场信息咨询服务，帮助客户把握市场动态，做出明智决策，为客户的业务发展提供有力支持。</p>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务内容</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>市场价格监测与分析</li>
+                        <li>行业趋势研究与预测</li>
+                        <li>竞争对手分析</li>
+                        <li>政策法规解读</li>
+                        <li>投资机会评估</li>
+                    </ul>
+                    <h4 class="text-xl font-bold text-primary mb-3">服务形式</h4>
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-file-alt text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">市场报告</h5>
+                            <p class="text-sm">定期发布的市场分析报告</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-chart-line text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">数据平台</h5>
+                            <p class="text-sm">实时更新的市场数据平台</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <i class="fas fa-comments text-3xl text-primary mb-2"></i>
+                            <h5 class="font-bold">专家咨询</h5>
+                            <p class="text-sm">一对一的专家咨询服务</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">联系我们</h4>
+                        <p>如需了解更多详情或获取报价，请联系我们的市场信息团队：</p>
+                        <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> 13804785444</p>
+                        <p><i class="fas fa-envelope mr-2"></i> 1151112367@qq.com</p>
+                    </div>
+                `
+            }
+        };
+        
+        // 打开模态框
+        viewDetailsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const product = btn.getAttribute('data-product');
+                modalTitle.textContent = productDetails[product].title;
+                modalContent.innerHTML = productDetails[product].content;
+                modal.classList.remove('hidden');
+            });
+        });
+        
+        // 关闭模态框
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+        
+        // 点击模态框外部关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+        
+        // 联系表单提交
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !email || !phone || !subject || !message) {
+                alert('请填写所有必填字段');
+                e.preventDefault();
+                return;
+            }
+        });
+        
+        // AI智能客服
+        const aiChatButton = document.querySelector('.ai-chat-button');
+        const aiChatWindow = document.querySelector('.ai-chat-window');
+        const closeChat = document.getElementById('close-chat');
+        const chatInput = document.getElementById('chat-input');
+        const sendMessage = document.getElementById('send-message');
+        const chatBody = document.querySelector('.ai-chat-body');
+        
+        // 打开聊天窗口
+        aiChatButton.addEventListener('click', () => {
+            aiChatWindow.style.display = 'flex';
+        });
+        
+        // 关闭聊天窗口
+        closeChat.addEventListener('click', () => {
+            aiChatWindow.style.display = 'none';
+        });
+        
+        // 发送消息
+        function sendChatMessage() {
+            const message = chatInput.value.trim();
+            
+            if (message) {
+                // 添加用户消息
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'message user-message';
+                userMessageDiv.textContent = message;
+                chatBody.appendChild(userMessageDiv);
+                
+                // 清空输入框
+                chatInput.value = '';
+                
+                // 滚动到底部
+                chatBody.scrollTop = chatBody.scrollHeight;
+                
+                // 模拟AI回复
+                setTimeout(() => {
+                    const aiResponse = getAIResponse(message);
+                    const aiMessageDiv = document.createElement('div');
+                    aiMessageDiv.className = 'message ai-message';
+                    aiMessageDiv.textContent = aiResponse;
+                    chatBody.appendChild(aiMessageDiv);
+                    
+                    // 滚动到底部
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        // 发送按钮点击事件
+        sendMessage.addEventListener('click', sendChatMessage);
+        
+        // 输入框回车事件
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
+        
+        // 简单的AI回复逻辑
+        function getAIResponse(message) {
+            message = message.toLowerCase();
+            
+            if (message.includes('价格') || message.includes('费用') || message.includes('多少钱')) {
+                return '我们的产品和服务价格根据具体需求而定，建议您联系我们的客服团队获取详细报价：0471-1234567。';
+            } else if (message.includes('联系方式') || message.includes('怎么联系')) {
+                return '您可以通过以下方式联系我们：电话：18847108864、13804785444，邮箱：1151112367@qq.com，地址：内蒙古巴彦淖尔市杭锦后旗二道桥镇帅峰商贸。';
+            } else if (message.includes('营业时间') || message.includes('工作时间')) {
+                return '我们的工作时间是周一至周五：9:00 - 18:00，周六、周日休息。';
+            } else if (message.includes('产品') || message.includes('服务')) {
+                return '我们提供物流服务、仓储服务、进出口贸易等多种产品和服务，您可以在网站的"产品展示"部分查看详细信息，或者告诉我您感兴趣的具体产品，我可以为您提供更多信息。';
+            } else if (message.includes('合作') || message.includes('加盟')) {
+                return '我们欢迎各类合作，如果您有合作意向，请联系我们的业务部门：business@nmgsfsm.com，或者拨打我们的电话：0471-1234567。';
+            } else if (message.includes('你好') || message.includes('您好') || message.includes('hi') || message.includes('hello')) {
+                return '您好！很高兴为您服务，请问有什么可以帮助您的吗？';
+            } else if (message.includes('谢谢') || message.includes('感谢')) {
+                return '不客气！如果您还有其他问题，随时可以咨询我。';
+            } else {
+                return '感谢您的咨询。您的问题我已记录，我们的客服人员会尽快与您联系解答。您也可以直接拨打我们的客服电话：0471-1234567。';
+            }
+        }
+        
+        // Three.js 3D背景效果
+        function initThreeJS() {
+            const container = document.getElementById('scene-container');
+            
+            // 创建场景
+            const scene = new THREE.Scene();
+            
+            // 创建相机
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            // 创建渲染器
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+            
+            // 创建几何体
+            const particles = new THREE.BufferGeometry();
+            const particleCount = 1000;
+            
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            
+            const color = new THREE.Color();
+            
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                // 位置
+                positions[i] = (Math.random() - 0.5) * 10;
+                positions[i + 1] = (Math.random() - 0.5) * 10;
+                positions[i + 2] = (Math.random() - 0.5) * 10;
+                
+                // 颜色
+                const colorIndex = Math.floor(Math.random() * 3);
+                if (colorIndex === 0) {
+                    color.setRGB(0.1, 0.3, 0.6); // 蓝色
+                } else if (colorIndex === 1) {
+                    color.setRGB(0.8, 0.6, 0.1); // 金色
+                } else {
+                    color.setRGB(0.2, 0.5, 0.3); // 绿色
+                }
+                
+                colors[i] = color.r;
+                colors[i + 1] = color.g;
+                colors[i + 2] = color.b;
+            }
+            
+            particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            
+            // 材质
+            const particleMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+            
+            // 创建粒子系统
+            const particleSystem = new THREE.Points(particles, particleMaterial);
+            scene.add(particleSystem);
+            
+            // 动画
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                particleSystem.rotation.x += 0.001;
+                particleSystem.rotation.y += 0.002;
+                
+                renderer.render(scene, camera);
+            }
+            
+            // 窗口大小调整
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+            
+            animate();
+        }
+        
+        // 初始化Three.js
+        initThreeJS();
+    </script>
+
+</body></html>
